@@ -20,8 +20,9 @@
       filter="isNotCompleted"
       observe="completed">
         <div class="task">
-            <input type="checkbox" on-click="toogleCompleted" checked="{{item.completed}}" >
-            <input placeholder="Task name" type="text" value="{{item.name::input}}" on-keyup="taskWrite">
+            <!-- <input type="checkbox" on-click="toogleCompleted" checked="{{item.completed}}" > -->
+            <input type="checkbox" checked="{{item.completed::input}}" >            
+            <input placeholder="Task name" type="text" value="{{item.name::input}}">
         </div>
     </template>
     <!--dom-repeat para Polymer 1-->
@@ -46,7 +47,8 @@
       filter="isCompleted"
       observe="completed">
         <div class="task">
-            <input type="checkbox" on-click="toogleCompleted" checked="{{item.completed}}" >
+            <!-- <input type="checkbox" on-click="toogleCompleted" checked="{{item.completed}}" > -->
+            <input type="checkbox" checked="{{item.completed::input}}" >            
             <input placeholder="Task name" value="{{item.name}}" type="text">
         </div>
     </template>
@@ -80,25 +82,22 @@
           name: '',
           completed: false
         };
-        console.log(this, '---this');
+        // console.log(this, '---this');
         this.push('tasks', newTask)
       }
       isNotCompleted(item){
-        console.log(item, 'tarea');
+        // console.log(item, 'tarea');
         return !item.completed;
       }
 
-      callAlert(){
-        alert('---Alert---')
-      }
 
       isCompleted(item){
         return item.completed;
       }
-      toogleCompleted(e){
-        // console.log(e.model.item, 'model');
-        e.model.set('item.completed', !e.model.item.completed) 
-      }
+      // toogleCompleted(e){
+      //   // console.log(e.model.item, 'model');
+      //   e.model.set('item.completed', !e.model.item.completed) 
+      // }
       // taskWrite(e){
       //   console.log(e.model.item, 'WTAREA');
       //   e.model.set('item.name', !e.model.item.name) 
