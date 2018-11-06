@@ -1,5 +1,4 @@
 <link rel="import" href="../polymer/polymer-element.html">
-<!-- <link rel="import" href="../polymer/lib/elements/dom-repeat.html"> -->
 <link rel="import" href="bower_components/polymer/lib/utils/gestures.html">
 
 <dom-module id="poly-cast">
@@ -20,7 +19,6 @@
       filter="isNotCompleted"
       observe="completed">
         <div class="task">
-            <!-- <input type="checkbox" on-click="toogleCompleted" checked="{{item.completed}}" > -->
             <input type="checkbox" checked="{{item.completed::input}}" >            
             <input placeholder="Task name" type="text" value="{{item.name::input}}">
         </div>
@@ -47,7 +45,6 @@
       filter="isCompleted"
       observe="completed">
         <div class="task">
-            <!-- <input type="checkbox" on-click="toogleCompleted" checked="{{item.completed}}" > -->
             <input type="checkbox" checked="{{item.completed::input}}" >            
             <input placeholder="Task name" value="{{item.name}}" type="text">
         </div>
@@ -82,11 +79,9 @@
           name: '',
           completed: false
         };
-        // console.log(this, '---this');
         this.push('tasks', newTask)
       }
       isNotCompleted(item){
-        // console.log(item, 'tarea');
         return !item.completed;
       }
 
@@ -94,16 +89,6 @@
       isCompleted(item){
         return item.completed;
       }
-      // toogleCompleted(e){
-      //   // console.log(e.model.item, 'model');
-      //   e.model.set('item.completed', !e.model.item.completed) 
-      // }
-      // taskWrite(e){
-      //   console.log(e.model.item, 'WTAREA');
-      //   e.model.set('item.name', !e.model.item.name) 
-
-      // }
-
     }
 
     window.customElements.define(PolyCast.is, PolyCast);
